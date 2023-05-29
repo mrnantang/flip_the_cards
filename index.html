@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>翻牌子</title>
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="./asset/css/default.css" />
+    <link rel="stylesheet" href="./asset/css/index.css" />
+    <script src="./asset/js/Vue.js"></script>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <div
+        class="rollbox"
+        v-for="(item,index) in arr"
+        :class="{'box_rolling':item.isRolling}"
+        @click="this.arr[index].isRolling = !this.arr[index].isRolling;"
+      >
+        <!-- 前面div -->
+        <div class="rollbox_front">
+          <div class="contentbox">
+            <img src="./asset/img/s1.png" />
+          </div>
+        </div>
+        <!-- 后面div -->
+        <div class="rollbox_behind">
+          <div class="contentbox2">{{item.name}}</div>
+        </div>
+      </div>
+    </div>
+    <!-- 导入 Vue -->
+    <script>
+      const App = {
+        data() {
+          return {
+            arr: [
+              {
+                name: "大牙星星",
+                isRolling: false,
+              },
+              {
+                name: "小短腿",
+                isRolling: false,
+              },
+              {
+                name: "大眼萌妹",
+                isRolling: false,
+              },
+              {
+                name: "会飞鹅",
+                isRolling: false,
+              },
+              {
+                name: "凸嘴小花",
+                isRolling: false,
+              },
+              {
+                name: "微笑兔",
+                isRolling: false,
+              },
+              {
+                name: "白雪公主",
+                isRolling: false,
+              },
+              {
+                name: "彩虹兔",
+                isRolling: false,
+              },
+            ],
+          };
+        },
+        created() {
+          this.test(this.arr);
+        },
+        methods: {
+          test(arr) {
+            const randomSort = (arr) => {
+              return arr.sort(() => Math.random() - 0.5);
+            };
+            this.arr = randomSort(this.arr);
+          },
+        },
+      };
+      const app = Vue.createApp(App);
+      app.mount("#app");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+
+@font-face {
+  font-family: SJKS; 
+  src: url('../SJKS.ttf')format('truetype'); 
+}
+
+      .rollbox {
+        width: 200px;
+        height: 356px;
+        position: relative;
+        perspective: 1000px;
+        margin: 100px auto;
+        cursor: pointer;
+      }
+      .rollbox_front,
+      .rollbox_behind {
+        width: 200px;
+        height: 356px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 1s;
+        backface-visibility: hidden;
+      }
+      .rollbox_front {
+        transform: rotateY(0deg);
+      }
+      .rollbox_behind {
+        transform: rotateY(180deg);
+      }
+      .box_rolling .rollbox_front {
+        transform: rotateY(-180deg);
+      }
+      .box_rolling .rollbox_behind {
+        transform: rotateY(0deg);
+      }
+      .contentbox {
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .contentbox img {
+        width: 100%;
+      }
+      .contentbox2 {
+        width: 100%;
+        height: 100%;
+        color: white;
+        background-color: pink;
+        font-size: 30px;
+        font-family: "SJKS";
+        letter-spacing: 10px;
+        writing-mode: vertical-rl;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
